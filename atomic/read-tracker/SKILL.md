@@ -17,10 +17,17 @@ Database ID: `01d855dcafb44fccb2ddc11cb695aaca`
 Direct URL: https://www.notion.so/01d855dcafb44fccb2ddc11cb695aaca?v=33550aefb54b8183a9c0000cbb223781
  
 ## Execution Steps
- 
+
+### Step 0: Load Required Tools (CRITICAL)
+Before any Notion operation, call `tool_search` with EXACTLY these queries in order:
+1. `tool_search("notion fetch page")` — loads `notion-fetch`
+2. `tool_search("notion search pages")` — loads `notion-search`
+
+Do NOT skip Step 0. `notion-fetch` is a deferred tool and will not be available otherwise.
+
 1. Fetch the tracker database using Notion MCP:
    ```
-   tool: notion-read-db  (or notion-fetch)
+   tool: notion-fetch
    target: database ID 01d855dcafb44fccb2ddc11cb695aaca
    ```
  

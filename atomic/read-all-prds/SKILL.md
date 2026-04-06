@@ -18,6 +18,13 @@ that all downstream composite skills depend on.
  
 ## Execution Steps
  
+### Step 0: Load Required Tools (CRITICAL)
+Before any Notion operation, call `tool_search` with EXACTLY these queries in order:
+1. `tool_search("notion fetch page")` — loads `notion-fetch`
+2. `tool_search("notion search pages")` — loads `notion-search`
+
+Do NOT skip Step 0. `notion-fetch` is a deferred tool and will not be available otherwise.
+
 ### Step 1: Fetch Folder Index
 ```
 tool: notion-fetch
