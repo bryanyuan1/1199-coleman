@@ -99,9 +99,43 @@ URL:      {notion page url}
  
 ---
  
+## Special Operations
+
+### Shelve / Backlog a Task
+
+When the user says "搁置", "暂时搁置", "shelve", "put on hold", or similar
+for a tracker task:
+
+1. **Do NOT delete the task.**
+2. Set `Priority` → `Low`
+3. Prepend `⏸ 搁置 (Backlog):` to the existing `Notes` field
+   (preserve existing notes after the prefix).
+4. Leave `Status` unchanged (user may want it to stay WIP/Todo).
+
+Example update:
+```
+tool: notion-update-page
+page_id: {task page id}
+command: update_properties
+properties:
+  Priority: "Low"
+  Notes: "⏸ 搁置 (Backlog): {existing notes}"
+```
+
+### Un-shelve / Resume a Task
+
+When the user says "恢复", "取消搁置", "resume", "un-shelve", or similar:
+
+1. Remove the `⏸ 搁置 (Backlog):` prefix from `Notes`.
+2. Set `Priority` back to the user-specified level (ask if unclear).
+3. Update `Status` if the user specifies (e.g., back to `In Progress`).
+
+---
+
 ## Critical Rules
- 
+
 1. **Never write without human confirmation** — Step 1 is mandatory
 2. **Never infer Week from date** — always ask or derive from tracker context explicitly
 3. **Source is multi_select** — pass as JSON array even for a single value: `["Self-Initiated"]`
 4. **Status default** — if not specified by calling skill, default to `Todo`
+5. **Never delete on shelve** — "搁置"/"shelve" means deprioritize, not remove
