@@ -1,10 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 680 920">
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 680 1000">
 <style>
   text { font-family: system-ui, -apple-system, sans-serif; }
   .th { font-size: 14px; font-weight: 500; }
   .ts { font-size: 12px; font-weight: 400; }
   .title { font-size: 16px; font-weight: 500; }
-  /* Light mode defaults */
   .loop-purple rect { fill: #EEEDFE; stroke: #534AB7; }
   .loop-purple > rect { fill: #EEEDFE; stroke: #534AB7; }
   .loop-purple .th, .loop-purple .ts { fill: #3C3489; }
@@ -27,11 +26,10 @@
   .arr { stroke: #888780; stroke-width: 1.5; }
   .dash { stroke: #888780; stroke-width: 1; stroke-dasharray: 6 4; }
   .loop-dash { stroke: #888780; stroke-width: 1; stroke-dasharray: 4 3; }
-  .leader { stroke: #888780; stroke-width: 0.5; stroke-dasharray: 3 2; }
   .label { fill: #5F5E5A; font-size: 12px; }
   .title-text { fill: #2C2C2A; }
-  .legend-text { fill: #5F5E5A; font-size: 12px; }
   .italic { font-style: italic; fill: #5F5E5A; font-size: 12px; }
+  .legend-text { fill: #5F5E5A; font-size: 12px; }
   @media (prefers-color-scheme: dark) {
     .loop-purple > rect { fill: #26215C; stroke: #AFA9EC; }
     .loop-purple .th, .loop-purple .ts { fill: #CECBF6; }
@@ -52,18 +50,16 @@
     .arr { stroke: #B4B2A9; }
     .dash { stroke: #B4B2A9; }
     .loop-dash { stroke: #B4B2A9; }
-    .leader { stroke: #B4B2A9; }
     .label { fill: #B4B2A9; }
     .title-text { fill: #F1EFE8; }
-    .legend-text { fill: #B4B2A9; }
     .italic { fill: #B4B2A9; }
+    .legend-text { fill: #B4B2A9; }
   }
 </style>
 <defs>
 <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
 </defs>
 
-<!-- Title -->
 <text class="title title-text" x="340" y="30" text-anchor="middle">1199-coleman: three human-in-the-loop cycles</text>
 
 <!-- ==================== PLANNING LOOP ==================== -->
@@ -101,98 +97,112 @@
 
 <!-- ==================== DEV LOOP ==================== -->
 <g class="loop-teal">
-<rect x="360" y="60" width="280" height="420" rx="16" stroke-width="0.5"/>
+<rect x="360" y="60" width="280" height="500" rx="16" stroke-width="0.5"/>
 <text class="th" x="500" y="88" text-anchor="middle">Dev loop (Claude Code)</text>
 <text class="ts" x="500" y="106" text-anchor="middle">Local code + Notion</text>
 </g>
 
-<g class="box-gray"><rect x="400" y="125" width="200" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="147" text-anchor="middle" dominant-baseline="central">plan.md (local)</text></g>
+<!-- dev-plan-draft -->
+<g class="box-teal"><rect x="410" y="125" width="180" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="147" text-anchor="middle" dominant-baseline="central">dev-plan-draft</text></g>
 <line x1="500" y1="161" x2="500" y2="175" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-teal"><rect x="410" y="175" width="180" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="197" text-anchor="middle" dominant-baseline="central">dev-plan-review</text></g>
+<!-- humanize -->
+<g class="box-gray"><rect x="420" y="175" width="160" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="197" text-anchor="middle" dominant-baseline="central">humanize → plan.md</text></g>
 <line x1="500" y1="211" x2="500" y2="225" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-coral"><rect x="430" y="225" width="140" height="32" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="245" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
-<line x1="500" y1="257" x2="500" y2="270" class="arr" marker-end="url(#arrow)"/>
+<!-- dev-plan-review -->
+<g class="box-teal"><rect x="410" y="225" width="180" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="247" text-anchor="middle" dominant-baseline="central">dev-plan-review</text></g>
+<line x1="500" y1="261" x2="500" y2="275" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-teal"><rect x="410" y="270" width="180" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="292" text-anchor="middle" dominant-baseline="central">dev-plan-critique</text></g>
-<line x1="500" y1="306" x2="500" y2="318" class="arr" marker-end="url(#arrow)"/>
+<!-- HUMAN VERIFY -->
+<g class="box-coral"><rect x="430" y="275" width="140" height="32" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="295" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
+<line x1="500" y1="307" x2="500" y2="320" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-coral"><rect x="430" y="318" width="140" height="32" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="338" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
-<line x1="500" y1="350" x2="500" y2="362" class="arr" marker-end="url(#arrow)"/>
+<!-- dev-plan-critique -->
+<g class="box-teal"><rect x="410" y="320" width="180" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="342" text-anchor="middle" dominant-baseline="central">dev-plan-critique</text></g>
+<line x1="500" y1="356" x2="500" y2="368" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-teal"><rect x="410" y="362" width="180" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="384" text-anchor="middle" dominant-baseline="central">dev-plan-edit</text></g>
-<line x1="500" y1="398" x2="500" y2="412" class="arr" marker-end="url(#arrow)"/>
+<!-- HUMAN VERIFY -->
+<g class="box-coral"><rect x="430" y="368" width="140" height="32" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="388" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
+<line x1="500" y1="400" x2="500" y2="412" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-coral"><rect x="430" y="412" width="140" height="32" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="432" text-anchor="middle" dominant-baseline="central">Human approve</text></g>
-<line x1="500" y1="444" x2="500" y2="456" class="arr" marker-end="url(#arrow)"/>
+<!-- dev-plan-edit -->
+<g class="box-teal"><rect x="410" y="412" width="180" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="434" text-anchor="middle" dominant-baseline="central">dev-plan-edit</text></g>
+<line x1="500" y1="448" x2="500" y2="460" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-teal"><rect x="410" y="456" width="180" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="500" y="478" text-anchor="middle" dominant-baseline="central">dev-plan-execute</text></g>
+<!-- HUMAN APPROVE -->
+<g class="box-coral"><rect x="430" y="460" width="140" height="32" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="480" text-anchor="middle" dominant-baseline="central">Human approve</text></g>
+<line x1="500" y1="492" x2="500" y2="505" class="arr" marker-end="url(#arrow)"/>
 
-<path d="M590 380 L625 380 L625 245 L572 245" fill="none" class="loop-dash" marker-end="url(#arrow)"/>
-<text class="label" x="635" y="316" text-anchor="start" transform="rotate(-90,635,316)">loop</text>
+<!-- dev-plan-execute -->
+<g class="box-teal"><rect x="410" y="505" width="180" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="500" y="527" text-anchor="middle" dominant-baseline="central">dev-plan-execute</text></g>
+
+<!-- Dev loop back -->
+<path d="M590 430 L625 430 L625 295 L572 295" fill="none" class="loop-dash" marker-end="url(#arrow)"/>
+<text class="label" x="635" y="366" text-anchor="start" transform="rotate(-90,635,366)">loop</text>
 
 <!-- Bridge: planning → dev -->
-<line x1="260" y1="380" x2="408" y2="196" class="dash" marker-end="url(#arrow)"/>
-<text class="label" x="348" y="270" text-anchor="middle" transform="rotate(-30,348,270)">PRD informs plan</text>
+<line x1="260" y1="380" x2="408" y2="146" class="dash" marker-end="url(#arrow)"/>
+<text class="label" x="345" y="245" text-anchor="middle" transform="rotate(-33,345,245)">PRD informs plan</text>
 
 <!-- ==================== EXTERNAL REPORTING ==================== -->
 <g class="loop-amber">
-<rect x="120" y="530" width="440" height="340" rx="16" stroke-width="0.5"/>
-<text class="th" x="340" y="558" text-anchor="middle">External reporting loop</text>
-<text class="ts" x="340" y="576" text-anchor="middle">Advisor communication</text>
+<rect x="120" y="600" width="440" height="340" rx="16" stroke-width="0.5"/>
+<text class="th" x="340" y="628" text-anchor="middle">External reporting loop</text>
+<text class="ts" x="340" y="646" text-anchor="middle">Advisor communication</text>
 </g>
 
-<g class="box-amber"><rect x="200" y="595" width="280" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="340" y="617" text-anchor="middle" dominant-baseline="central">progress-digest</text></g>
-<line x1="340" y1="631" x2="340" y2="645" class="arr" marker-end="url(#arrow)"/>
+<g class="box-amber"><rect x="200" y="665" width="280" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="340" y="687" text-anchor="middle" dominant-baseline="central">progress-digest</text></g>
+<line x1="340" y1="701" x2="340" y2="715" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-coral"><rect x="270" y="645" width="140" height="32" rx="6" stroke-width="0.5"/>
-<text class="th" x="340" y="665" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
+<g class="box-coral"><rect x="270" y="715" width="140" height="32" rx="6" stroke-width="0.5"/>
+<text class="th" x="340" y="735" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
 
-<line x1="270" y1="661" x2="220" y2="700" class="arr" marker-end="url(#arrow)"/>
-<line x1="410" y1="661" x2="460" y2="700" class="arr" marker-end="url(#arrow)"/>
+<line x1="270" y1="731" x2="220" y2="770" class="arr" marker-end="url(#arrow)"/>
+<line x1="410" y1="731" x2="460" y2="770" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-amber"><rect x="145" y="700" width="150" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="220" y="722" text-anchor="middle" dominant-baseline="central">slides-report</text></g>
+<g class="box-amber"><rect x="145" y="770" width="150" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="220" y="792" text-anchor="middle" dominant-baseline="central">slides-report</text></g>
 
-<g class="box-amber"><rect x="385" y="700" width="150" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="460" y="722" text-anchor="middle" dominant-baseline="central">Email draft</text></g>
+<g class="box-amber"><rect x="385" y="770" width="150" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="460" y="792" text-anchor="middle" dominant-baseline="central">Email draft</text></g>
 
-<line x1="220" y1="736" x2="220" y2="755" class="arr" marker-end="url(#arrow)"/>
-<line x1="460" y1="736" x2="460" y2="755" class="arr" marker-end="url(#arrow)"/>
+<line x1="220" y1="806" x2="220" y2="825" class="arr" marker-end="url(#arrow)"/>
+<line x1="460" y1="806" x2="460" y2="825" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-coral"><rect x="150" y="755" width="140" height="32" rx="6" stroke-width="0.5"/>
-<text class="th" x="220" y="775" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
-<g class="box-coral"><rect x="390" y="755" width="140" height="32" rx="6" stroke-width="0.5"/>
-<text class="th" x="460" y="775" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
+<g class="box-coral"><rect x="150" y="825" width="140" height="32" rx="6" stroke-width="0.5"/>
+<text class="th" x="220" y="845" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
+<g class="box-coral"><rect x="390" y="825" width="140" height="32" rx="6" stroke-width="0.5"/>
+<text class="th" x="460" y="845" text-anchor="middle" dominant-baseline="central">Human verify</text></g>
 
-<line x1="220" y1="787" x2="220" y2="805" class="arr" marker-end="url(#arrow)"/>
-<line x1="460" y1="787" x2="460" y2="805" class="arr" marker-end="url(#arrow)"/>
+<line x1="220" y1="857" x2="220" y2="875" class="arr" marker-end="url(#arrow)"/>
+<line x1="460" y1="857" x2="460" y2="875" class="arr" marker-end="url(#arrow)"/>
 
-<g class="box-gray"><rect x="145" y="805" width="150" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="220" y="827" text-anchor="middle" dominant-baseline="central">Advisor meeting</text></g>
-<g class="box-gray"><rect x="385" y="805" width="150" height="36" rx="6" stroke-width="0.5"/>
-<text class="th" x="460" y="827" text-anchor="middle" dominant-baseline="central">Send to advisor</text></g>
+<g class="box-gray"><rect x="145" y="875" width="150" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="220" y="897" text-anchor="middle" dominant-baseline="central">Advisor meeting</text></g>
+<g class="box-gray"><rect x="385" y="875" width="150" height="36" rx="6" stroke-width="0.5"/>
+<text class="th" x="460" y="897" text-anchor="middle" dominant-baseline="central">Send to advisor</text></g>
 
 <!-- Feedback loop back -->
-<path d="M145 823 L80 823 L80 140 L68 140" fill="none" class="dash" marker-end="url(#arrow)"/>
-<text class="label" x="68" y="490" text-anchor="start" transform="rotate(-90,68,490)">Advisor feedback → prd-edit</text>
+<path d="M145 893 L80 893 L80 140 L68 140" fill="none" class="dash" marker-end="url(#arrow)"/>
+<text class="label" x="68" y="520" text-anchor="start" transform="rotate(-90,68,520)">Advisor feedback → prd-edit</text>
 
 <!-- Bottom annotations -->
-<text class="italic" x="340" y="880" text-anchor="middle">Knowledge loop: paper-distill → wiki → knowledge-retrieval → better PRDs + plans</text>
-<text class="italic" x="340" y="898" text-anchor="middle">Correction loop: experiment results → knowledge-correction → wiki + PRD updated</text>
+<text class="italic" x="340" y="950" text-anchor="middle">Knowledge loop: paper-distill → wiki → knowledge-retrieval → better PRDs + plans</text>
+<text class="italic" x="340" y="968" text-anchor="middle">Correction loop: experiment results → knowledge-correction → wiki + PRD updated</text>
 
 <!-- Legend -->
-<g transform="translate(40,910)">
+<g transform="translate(40,985)">
 <rect x="0" y="-10" width="12" height="12" rx="2" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.5"/>
 <text class="legend-text" x="18" y="0">= human checkpoint (never skipped)</text>
 </g>
